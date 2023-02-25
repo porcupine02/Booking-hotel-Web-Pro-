@@ -1,17 +1,150 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
-    asdfasdfasdfasdf
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>HOME</title>
 </head>
+
 <body>
-    asdfasdfasdfasdfasdfasdfasdfas
-    asdfasdfasdfasdfasdfasdfasdfas
-    asdfasdfasdfasdfasdfasdfasdfas
-    asdfasdfasdfasdfasdfasdfasdfas
-    asdfasdfasdfasdfasdfasdfasdfas
-    12233
+    <!-- nav bar -->
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation"
+        style="position:fixed; top: 0; width: 100%;">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <i class="fas fa-home "></i>
+                &nbsp Home
+            </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item">
+                    ค้นหาห้องพัก
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        ห้องพักของเรา
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item"  href="#sd">
+                            Standard Room
+                        </a>
+                        <a class="navbar-item" href="#dl">
+                            Deluxe Room
+                        </a>
+                        <a class="navbar-item" href="#st">
+                            Suite Room
+                        </a>
+                        <a class="navbar-item"  href="#su">
+                            Superior Room
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons asd">
+                        <a class="button is-info">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-dark">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- banner -->
+    <section class="hero has-background-info-light is-large">
+        <div class="hero-body">
+            <p class="title">
+                HOTEL BOOKING
+            </p>
+            <p class="subtitle">
+                information for you
+            </p>
+        </div>
+    </section>
+
+
+
+
+    <!-- content -->
+    <div class="container my-5">
+        <div class="tile is-ancestor my-5 has-background-danger-light" id="sd">
+            <div class="tile is-4 is-vertical is-parent">
+                <div class="tile is-child">
+                    <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
+                        alt="Standard room image" width="100%">
+                </div>
+            </div>
+            <div class="tile is-parent is-vertical">
+                <div class="tile is-child">
+                    <p class="title">Standard Room</p>
+                    <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
+                </div>
+                <!-- <div class="tile is-child">
+                    <p class="title">Three</p>
+                </div> -->
+            </div>
+        </div>
+        <!--  -->
+        <div class="tile is-ancestor my-5 has-background-primary-light" id="dl">
+            <div class="tile is-4 is-vertical is-parent">
+                <div class="tile is-child">
+                    <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
+                        alt="Standard room image" width="100%">
+                </div>
+            </div>
+            <div class="tile is-parent is-vertical">
+                <div class="tile is-child">
+                    <p class="title">Deluxe Room</p>
+                    <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div class="tile is-ancestor my-5 has-background-warning-light" id="st">
+            <div class="tile is-4 is-vertical is-parent">
+                <div class="tile is-child">
+                    <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
+                        alt="Standard room image" width="100%">
+                </div>
+            </div>
+            <div class="tile is-parent is-vertical">
+                <div class="tile is-child">
+                    <p class="title">Suite Room</p>
+                    <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div class="tile is-ancestor my-5 has-background-success-light" id="su">
+            <div class="tile is-4 is-vertical is-parent">
+                <div class="tile is-child">
+                    <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
+                        alt="Standard room image" width="100%">
+                </div>
+            </div>
+            <div class="tile is-parent is-vertical">
+                <div class="tile is-child">
+                    <p class="title">Superior Room</p>
+                    <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </body>
+
 </html>
