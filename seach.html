@@ -1,0 +1,191 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <title>Profile</title>
+</head>
+
+<body>
+
+    <!-- nav bar -->
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation"
+        style="position:fixed; top: 0; width: 100%;">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <i class="fas fa-home "></i>
+                &nbsp Home
+            </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item">
+                    ค้นหาห้องพัก
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        ห้องพักของเรา
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="#sd">
+                            Standard Room
+                        </a>
+                        <a class="navbar-item" href="#dl">
+                            Deluxe Room
+                        </a>
+                        <a class="navbar-item" href="#st">
+                            Suite Room
+                        </a>
+                        <a class="navbar-item" href="#su">
+                            Superior Room
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons asd">
+                        <a class="button is-dark">
+                            <strong>My Profile</strong>
+                        </a>
+                        <a class="button is-danger">
+                            Log out
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <br><br>
+    <div class="container">
+        <!-- seach bar -->
+        <div class="field is-grouped mt-6 pt-5 has-background-info-light py-3 px-3">
+            <p class="control is-expanded" style="width:5%">
+                <!-- start date -->
+                <input class="input" type="date">
+            </p>
+            <p class="control is-expanded" style="width:5%">
+                <!-- end date -->
+                <input class="input" type="date">
+            </p>
+            <!-- <p class=""> -->
+            <div class="control is-expanded select" style="width:5%">
+                <select style="width:100%;">
+                    <option>Standard Room</option>
+                    <option>Deluxe Room</option>
+                    <option>Suite Room</option>
+                    <option>Superior Room</option>
+                </select>
+            </div>
+
+            <!-- </p> -->
+            <div class="control is-expanded select" style="width:5%">
+                <select style="width:100%;">
+                    <option selected="selected">price</option>
+                    <option>1000 - 2000</option>
+                    <option>2001 - 3000</option>
+                    <option>3001 - 4000</option>
+                </select>
+            </div>
+            <p class="control">
+                <a class="button is-info">
+                    Search
+                </a>
+            </p>
+        </div>
+
+        <!-- result -->
+        <p class="subtitle has-text-centered mt-6">ผลการค้นหา</p>
+        <div class="container my-5">
+            <div class="tile is-ancestor my-5 has-background-danger-light" id="sd">
+                <div class="tile is-4 is-vertical is-parent">
+                    <div class="tile is-child">
+                        <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
+                            alt="Standard room image" width="100%">
+                    </div>
+                </div>
+                <div class="tile is-parent is-vertical">
+                    <div class="tile is-child">
+                        <p class="title">Standard Room</p>
+                        <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
+                    </div>
+                    <div class="tile is-child has-text-right">
+                        <p class="title has-text-danger">999 บาท</p>
+                        <button class="button has-background-success">จองตอนนี้</button>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="tile is-ancestor my-5 has-background-primary-light" id="dl">
+                <div class="tile is-4 is-vertical is-parent">
+                    <div class="tile is-child">
+                        <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
+                            alt="Standard room image" width="100%">
+                    </div>
+                </div>
+                <div class="tile is-parent is-vertical">
+                    <div class="tile is-child">
+                        <p class="title">Deluxe Room</p>
+                        <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
+                    </div>
+                    <div class="tile is-child has-text-right">
+                        <p class="title has-text-danger">999 บาท</p>
+                        <button class="button has-background-success">จองตอนนี้</button>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="tile is-ancestor my-5 has-background-warning-light" id="st">
+                <div class="tile is-4 is-vertical is-parent">
+                    <div class="tile is-child">
+                        <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
+                            alt="Standard room image" width="100%">
+                    </div>
+                </div>
+                <div class="tile is-parent is-vertical">
+                    <div class="tile is-child">
+                        <p class="title">Suite Room</p>
+                        <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
+                    </div>
+                    <div class="tile is-child has-text-right">
+                        <p class="title has-text-danger">999 บาท</p>
+                        <button class="button has-background-success">จองตอนนี้</button>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="tile is-ancestor my-5 has-background-success-light" id="su">
+                <div class="tile is-4 is-vertical is-parent">
+                    <div class="tile is-child">
+                        <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
+                            alt="Standard room image" width="100%">
+                    </div>
+                </div>
+                <div class="tile is-parent is-vertical">
+                    <div class="tile is-child">
+                        <p class="title">Superior Room</p>
+                        <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
+                    </div>
+                    <div class="tile is-child has-text-right">
+                        <p class="title has-text-danger">999 บาท</p>
+                        <button class="button has-background-success">จองตอนนี้</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+</body>
+
+</html>

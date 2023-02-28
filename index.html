@@ -5,146 +5,269 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>HOME</title>
+    <style>
+        .bannerImage {
+            background: linear-gradient(rgba(221, 246, 255, 0.141) 50%, rgba(108, 120, 123, 0.278)), url('https://www.murhotels.com/cache/40/b3/40b3566310d686be665d9775f59ca9cd.jpg');
+        }
+    </style>
 </head>
 
-<body id="home">
-    <!-- nav bar -->
-    <nav class="navbar is-dark" role="navigation" aria-label="main navigation"
-        style="position:fixed; top: 0; width: 100%;">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="#home">
-                <i class="fas fa-home "></i>
-                &nbsp Home
-            </a>
-        </div>
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item">
-                    ค้นหาห้องพัก
-                </a>
+<body>
+    <div id="home">
+        <!-- login signout -->
+        <div :class="{modal: modal, 'is-active': isActive_Sign_in}">
+            <div class="modal-background"></div>
+            <form class="box  modal-content">
+                <div class="field">
+                    <label class="label has-text-centered">Sign in</label>
+                </div>
+                <div class="field">
+                    <h1 class="label">Email</h1>
+                    <div class="control">
+                        <input class="input" type="email" placeholder="e.g. alex@example.com" />
+                    </div>
+                </div>
 
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        ห้องพักของเรา
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                        <input class="input" type="password" placeholder="********" />
+                    </div>
+                </div>
+
+                <button class="button is-primary">Sign in</button>
+                <button class="button is-danger" @click="Close()">Close</button>
+            </form>
+
+        </div>
+        <div :class="{modal: modal, 'is-active': isActive_Sign_up}">
+            <div class="modal-background"></div>
+
+            <form class="box  modal-content">
+                <div class="field">
+                    <label class="label has-text-centered">Sign up</label>
+                </div>
+
+                <div class="field">
+                    <h1 class="label">First Name</h1>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Puttipong" />
+                    </div>
+                </div>
+                <div class="field">
+                    <h1 class="label">Last Name</h1>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Panich" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Phone number</label>
+                    <div class="control">
+                        <input class="input" type="password" placeholder="083-3343-xxx" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Date</label>
+                    <div class="control">
+                        <input class="input" type="date" placeholder="24/07/2002" />
+                    </div>
+                </div>
+                <div class="field">
+                    <h1 class="label">Email</h1>
+                    <div class="control">
+                        <input class="input" type="email" placeholder="e.g. alex@example.com" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">User Name</label>
+                    <div class="control">
+                        <input class="input" type="password" placeholder="Folk" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                        <input class="input" type="password" placeholder="********" />
+                    </div>
+                </div>
+
+
+                <button class="button is-primary">
+                    <a href="profile.html">Sign up</a>
+                </button>
+
+                <button class="button is-danger" @click="Close()">Close</button>
+            </form>
+
+        </div>
+
+        <!-- nav bar -->
+        <nav class="navbar is-dark" role="navigation" aria-label="main navigation"
+            style="position:fixed; top: 0; width: 100%;">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="#home">
+                    <i class="fas fa-home "></i>
+                    &nbsp Home
+                </a>
+            </div>
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="seach.html">
+                        ค้นหาห้องพัก
                     </a>
 
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item"  href="#sd">
-                            Standard Room
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            ห้องพักของเรา
                         </a>
-                        <a class="navbar-item" href="#dl">
-                            Deluxe Room
-                        </a>
-                        <a class="navbar-item" href="#st">
-                            Suite Room
-                        </a>
-                        <a class="navbar-item"  href="#su">
-                            Superior Room
-                        </a>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="#sd">
+                                Standard Room
+                            </a>
+                            <a class="navbar-item" href="#dl">
+                                Deluxe Room
+                            </a>
+                            <a class="navbar-item" href="#st">
+                                Suite Room
+                            </a>
+                            <a class="navbar-item" href="#su">
+                                Superior Room
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons asd">
+                            <a class="button is-info" @click="isActive_Sign_up = true">
+                                <strong>Sign up</strong>
+                            </a>
+                            <a class="button is-dark" @click="isActive_Sign_in = true">
+                                Log in
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons asd">
-                        <a class="button is-info">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-dark">
-                            Log in
-                        </a>
+        </nav>
+        <!-- banner -->
+
+        <section class="hero has-background-info-light is-large bannerImage">
+            <!-- <img src="https://www.murhotels.com/cache/40/b3/40b3566310d686be665d9775f59ca9cd.jpg" alt="banner_hotel"
+                class="bannerImage"> -->
+            <div class="hero-body has-text-centered" style="z-index: 2;">
+                <p class="title is-size-1">
+                    HOTEL BOOKING
+                </p>
+                <p class="subtitle">
+                    information for you
+                </p>
+            </div>
+        </section>
+
+
+
+
+        <!-- content -->
+        <div class="container my-5">
+            <div class="tile is-ancestor my-5 has-background-danger-light" id="sd">
+                <div class="tile is-4 is-vertical is-parent">
+                    <div class="tile is-child">
+                        <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
+                            alt="Standard room image" width="100%">
+                    </div>
+                </div>
+                <div class="tile is-parent is-vertical">
+                    <div class="tile is-child">
+                        <p class="title">Standard Room</p>
+                        <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
+                    </div>
+                    <div class="tile is-child has-text-right">
+                        <p class="title has-text-danger">999 บาท</p>
+                        <button class="button has-background-success">จองตอนนี้</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </nav>
-    <!-- banner -->
-    <section class="hero has-background-info-light is-large">
-        <div class="hero-body">
-            <p class="title">
-                HOTEL BOOKING
-            </p>
-            <p class="subtitle">
-                information for you
-            </p>
-        </div>
-    </section>
+            <!--  -->
+            <div class="tile is-ancestor my-5 has-background-primary-light" id="dl">
+                <div class="tile is-4 is-vertical is-parent">
+                    <div class="tile is-child">
+                        <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
+                            alt="Standard room image" width="100%">
+                    </div>
+                </div>
+                <div class="tile is-parent is-vertical">
+                    <div class="tile is-child">
+                        <p class="title">Deluxe Room</p>
+                        <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
+                    </div>
+                    <div class="tile is-child has-text-right">
+                        <p class="title has-text-danger">999 บาท</p>
+                        <button class="button has-background-success">จองตอนนี้</button>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="tile is-ancestor my-5 has-background-warning-light" id="st">
+                <div class="tile is-4 is-vertical is-parent">
+                    <div class="tile is-child">
+                        <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
+                            alt="Standard room image" width="100%">
+                    </div>
+                </div>
+                <div class="tile is-parent is-vertical">
+                    <div class="tile is-child">
+                        <p class="title">Suite Room</p>
+                        <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
+                    </div>
+                    <div class="tile is-child has-text-right">
+                        <p class="title has-text-danger">999 บาท</p>
+                        <button class="button has-background-success">จองตอนนี้</button>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="tile is-ancestor my-5 has-background-success-light" id="su">
+                <div class="tile is-4 is-vertical is-parent">
+                    <div class="tile is-child">
+                        <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
+                            alt="Standard room image" width="100%">
+                    </div>
+                </div>
+                <div class="tile is-parent is-vertical">
+                    <div class="tile is-child">
+                        <p class="title">Superior Room</p>
+                        <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
+                    </div>
+                    <div class="tile is-child has-text-right">
+                        <p class="title has-text-danger">999 บาท</p>
+                        <button class="button has-background-success">จองตอนนี้</button>
+                    </div>
+                </div>
+            </div>
 
 
-
-
-    <!-- content -->
-    <div class="container my-5">
-        <div class="tile is-ancestor my-5 has-background-danger-light" id="sd">
-            <div class="tile is-4 is-vertical is-parent">
-                <div class="tile is-child">
-                    <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
-                        alt="Standard room image" width="100%">
-                </div>
-            </div>
-            <div class="tile is-parent is-vertical">
-                <div class="tile is-child">
-                    <p class="title">Standard Room</p>
-                    <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
-                </div>
-                <!-- <div class="tile is-child">
-                    <p class="title">Three</p>
-                </div> -->
-            </div>
         </div>
-        <!--  -->
-        <div class="tile is-ancestor my-5 has-background-primary-light" id="dl">
-            <div class="tile is-4 is-vertical is-parent">
-                <div class="tile is-child">
-                    <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
-                        alt="Standard room image" width="100%">
-                </div>
-            </div>
-            <div class="tile is-parent is-vertical">
-                <div class="tile is-child">
-                    <p class="title">Deluxe Room</p>
-                    <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
-                </div>
-            </div>
-        </div>
-        <!--  -->
-        <div class="tile is-ancestor my-5 has-background-warning-light" id="st">
-            <div class="tile is-4 is-vertical is-parent">
-                <div class="tile is-child">
-                    <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
-                        alt="Standard room image" width="100%">
-                </div>
-            </div>
-            <div class="tile is-parent is-vertical">
-                <div class="tile is-child">
-                    <p class="title">Suite Room</p>
-                    <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
-                </div>
-            </div>
-        </div>
-        <!--  -->
-        <div class="tile is-ancestor my-5 has-background-success-light" id="su">
-            <div class="tile is-4 is-vertical is-parent">
-                <div class="tile is-child">
-                    <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
-                        alt="Standard room image" width="100%">
-                </div>
-            </div>
-            <div class="tile is-parent is-vertical">
-                <div class="tile is-child">
-                    <p class="title">Superior Room</p>
-                    <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
-                </div>
-            </div>
-        </div>
-
-
     </div>
 
 
 
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#home',
+            data: {
+                modal: true,
+                isActive_Sign_in: false,
+                isActive_Sign_up: false,
+            }
+        })
+    </script>
 </body>
 
 </html>
