@@ -174,82 +174,26 @@
 
 
         <!-- content -->
-        <div class="container my-5">
+        <div class="container my-5" v-for="room in allRoom">
             <div class="tile is-ancestor my-5 has-background-danger-light" id="sd">
                 <div class="tile is-4 is-vertical is-parent">
                     <div class="tile is-child">
-                        <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
-                            alt="Standard room image" width="100%">
+                        <img src="room.img"
+                            alt="room.type" width="100%">
                     </div>
                 </div>
                 <div class="tile is-parent is-vertical">
                     <div class="tile is-child">
-                        <p class="title">Standard Room</p>
-                        <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
+                        <p class="title">{{room.type}}</p>
+                        <p class="subtitle">{{room.description}}</p>
                     </div>
                     <div class="tile is-child has-text-right">
-                        <p class="title has-text-danger">999 บาท</p>
+                        <p class="title has-text-danger">{{room.price}}</p>
                         <button class="button has-background-success">จองตอนนี้</button>
                     </div>
                 </div>
             </div>
             <!--  -->
-            <div class="tile is-ancestor my-5 has-background-primary-light" id="dl">
-                <div class="tile is-4 is-vertical is-parent">
-                    <div class="tile is-child">
-                        <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
-                            alt="Standard room image" width="100%">
-                    </div>
-                </div>
-                <div class="tile is-parent is-vertical">
-                    <div class="tile is-child">
-                        <p class="title">Deluxe Room</p>
-                        <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
-                    </div>
-                    <div class="tile is-child has-text-right">
-                        <p class="title has-text-danger">999 บาท</p>
-                        <button class="button has-background-success">จองตอนนี้</button>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-            <div class="tile is-ancestor my-5 has-background-warning-light" id="st">
-                <div class="tile is-4 is-vertical is-parent">
-                    <div class="tile is-child">
-                        <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
-                            alt="Standard room image" width="100%">
-                    </div>
-                </div>
-                <div class="tile is-parent is-vertical">
-                    <div class="tile is-child">
-                        <p class="title">Suite Room</p>
-                        <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
-                    </div>
-                    <div class="tile is-child has-text-right">
-                        <p class="title has-text-danger">999 บาท</p>
-                        <button class="button has-background-success">จองตอนนี้</button>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-            <div class="tile is-ancestor my-5 has-background-success-light" id="su">
-                <div class="tile is-4 is-vertical is-parent">
-                    <div class="tile is-child">
-                        <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/184305239.jpg?k=4dbc2549dfba179004f2acdacceb65c7fb501f88823274ceb8397bde485209b7&o="
-                            alt="Standard room image" width="100%">
-                    </div>
-                </div>
-                <div class="tile is-parent is-vertical">
-                    <div class="tile is-child">
-                        <p class="title">Superior Room</p>
-                        <p class="subtitle">ห้องธรรมดา ไม่มีไรมากก้อแค่ห้อง</p>
-                    </div>
-                    <div class="tile is-child has-text-right">
-                        <p class="title has-text-danger">999 บาท</p>
-                        <button class="button has-background-success">จองตอนนี้</button>
-                    </div>
-                </div>
-            </div>
 
 
         </div>
@@ -258,6 +202,7 @@
 
 
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="data.js"></script>
     <script>
         var app = new Vue({
             el: '#home',
@@ -265,6 +210,8 @@
                 modal: true,
                 isActive_Sign_in: false,
                 isActive_Sign_up: false,
+                allRoom: rooms,
+
             }
         })
     </script>
