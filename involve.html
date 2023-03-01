@@ -112,7 +112,7 @@
                 <div class="column"></div>
                 <div class="column"></div>
                 <div class="column is-three">
-                    <a class="button is-primary " @click="comfirm()">ยืนยัน</a>
+                    <a class="button is-primary " @click="confirm()">ยืนยัน</a>
                 </div>
                 <div class="column">
                     <a href="booking.html" class="button is-danger">ยกเลิก</a>
@@ -135,17 +135,28 @@
                 information: '',
                 total: 0,
                 file: '',
+                history: [],
             },
             methods: {
                 confirm() {
-                    const receipt = JSON.stringify(this.customer)
-                    localStorage.setItem("book", dataBooking);
+                    console.log("adsf")
+
+
+
+
+                    const receipt = JSON.stringify(this.history)
+                    this.history.push(receipt)
+                    localStorage.setItem("history", this.history);
+
+
+
                     window.location.href = "profile.html";
 
                 }
 
             },
             created() {
+                this.history = JSON.parse(localStorage.getItem('book'))
                 this.information = JSON.parse(localStorage.getItem('book'))
                 this.total = this.information[0].price * this.information[0].countRoom
             }

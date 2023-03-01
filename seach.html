@@ -78,6 +78,7 @@
                 <!-- <p class=""> -->
                 <div class="control is-expanded select" style="width:5%">
                     <select style="width:100%;" v-model="selected_room">
+                        <option>All</option>
                         <option v-for="room in allRoom">
                             {{ room.type }}
                         </option>
@@ -87,7 +88,7 @@
                 <!-- </p> -->
                 <div class="control is-expanded select" style="width:5%">
                     <select style="width:100%;">
-                        <option v-for="item in limit" >
+                        <option v-for="item in limit">
                             {{ item.range }}
                         </option>
                         <!-- <option>1000 - 2000</option>
@@ -130,34 +131,25 @@
                 el: '#seach',
                 data: {
                     allRoom: rooms,
-                    selected_room: '',
+                    selected_room: 'All',
                     selected_price: '',
                     limit: data_range,
-                    limit_u : data_range
-                    // selectPrice: prices,
-                    // price: rangePrice,
+                    limit_u: data_range
                 },
                 computed: {
                     selRoom() {
-                        return this.allRoom.filter(value => value.type == this.selected_room || this.selected_room == '' || this.selected_room == 'All' || value == this.selected_price)
+                        return this.allRoom.filter(value => value.type == this.selected_room || this.selected_room == 'All')
                     },
-                    
+
                 },
                 watch: {
-                    // selected_am(newval) {
-                    //     console.log(newval);
-                    //     this.ftambons = this.tambons.filter(value => {
-                    //         return value.amphure_id === newval;
-
-                    //     })
-                    // },
-                    selected_room(newval){
+                    selected_room(newval) {
                         console.log(newval)
                         this.limit = this.limit_u.filter(value => {
                             return value.type == newval
                         })
                     }
-                    
+
 
 
 
