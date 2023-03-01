@@ -37,7 +37,7 @@
                     </div>
                 </div>
 
-                <button class="button is-primary">Sign in</button>
+                <a class="button is-primary" @click="login()">Sign in</a>
                 <button class="button is-danger" @click="Close()">Close</button>
             </form>
 
@@ -116,7 +116,7 @@
             </div>
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item" v-if="login == true" href="seach.html">
+                    <a class="navbar-item" v-if="logins == true" href="seach.html">
                         ค้นหาห้องพัก
                     </a>
 
@@ -144,12 +144,16 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons asd">
-                            <a class="button is-info" @click="isActive_Sign_up = true">
+                            <a class="button is-info" v-if="logins == false" @click="isActive_Sign_up = true">
                                 <strong>Sign up</strong>
                             </a>
-                            <a class="button is-dark" @click="isActive_Sign_in = true">
+                            <a class="button is-dark" v-if="logins == true" href="profile.html">
+                                <strong>My Profile</strong>
+                            </a>
+                            <a class="button is-dark" v-if="logins == false" @click="isActive_Sign_in = true">
                                 Log in
                             </a>
+                            <a class="button is-danger" v-if="logins == true" @click="logins = false">Log out</a>
                         </div>
                     </div>
                 </div>
@@ -190,7 +194,7 @@
                         <div class="tile is-child has-text-right">
                             <p class="title has-text-danger">{{room.price}}</p>
                             <a href="booking.html">
-                                <button v-if="login == true" class="button has-background-success">จองตอนนี้</button>
+                                <button v-if="logins == true" class="button has-background-success">จองตอนนี้</button>
                             </a>
                         </div>
                     </div>
@@ -213,7 +217,7 @@
                 isActive_Sign_in: false,
                 isActive_Sign_up: false,
                 allRoom: rooms,
-                login: false
+                logins: false
 
             },
 
@@ -221,8 +225,14 @@
                 Close(){
                     this.isActive_Sign_in =  false
                     this.isActive_Sign_up = false
+                },
+                login(){
+                    this.logins = true;
+                    this.isActive_Sign_in = false
                 }
             }
+
+
         })
     </script>
 </body>
