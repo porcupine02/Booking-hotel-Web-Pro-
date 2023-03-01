@@ -1,25 +1,26 @@
 const rooms = JSON.parse(`[{
-    "id": "sd",
+    "id": "01",
     "type": "Standard Room",
     "price": 999,
     "description": "ห้องราคาดี มีเฟอร์นิเจอร์พร้อม เป็นมิตรกับทุกคน",
-    "img": ""
+    "img": "./asset/standard.jpg"
   }, {
-    "id": "dl",
+    "id": "02",
     "type": "Deluxe Room",
     "price": 1499,
     "description": "ห้องราคาดี มีเฟอร์นิเจอร์พร้อม เป็นมิตรกับทุกคน",
-    "img": ""
+    "img": "./asset/deluxe.jpg"
   }, {
-    "id": "st",
+    "id": "03",
     "type": "Suite Room",
     "price": 1999,
     "description": "ห้องราคาดี มีเฟอร์นิเจอร์พร้อม เป็นมิตรกับทุกคน",
-    "img": ""
+    "img": "./asset/suite.jpg"
   }, {
-    "id": "su",
+    "id": "04",
     "type": "Superior Room",
     "price": 2499,
     "description": "ห้องราคาดี มีเฟอร์นิเจอร์พร้อม เป็นมิตรกับทุกคน",
-    "img": ""
+    "img": "./asset/superior.jpg"
   }]`);
+

@@ -9,7 +9,7 @@
     <title>HOME</title>
     <style>
         .bannerImage {
-            background: linear-gradient(rgba(221, 246, 255, 0.141) 50%, rgba(108, 120, 123, 0.278)), url('https://www.murhotels.com/cache/40/b3/40b3566310d686be665d9775f59ca9cd.jpg');
+            background: linear-gradient(rgba(221, 246, 255, 0.141) 50%, rgba(108, 120, 123, 0.278)), url('./asset/banner.jpg');
         }
     </style>
 </head>
@@ -126,16 +126,16 @@
                         </a>
 
                         <div class="navbar-dropdown">
-                            <a class="navbar-item"  href="index.html#sd">
+                            <a class="navbar-item" href="index.html#sd">
                                 Standard Room
                             </a>
-                            <a class="navbar-item"  href="index.html#dl">
+                            <a class="navbar-item" href="index.html#dl">
                                 Deluxe Room
                             </a>
-                            <a class="navbar-item"  href="index.html#st">
+                            <a class="navbar-item" href="index.html#st">
                                 Suite Room
                             </a>
-                            <a class="navbar-item"  href="index.html#su">
+                            <a class="navbar-item" href="index.html#su">
                                 Superior Room
                             </a>
                         </div>
@@ -175,21 +175,24 @@
 
         <!-- content -->
         <div class="container my-5" v-for="room in allRoom">
-            <div class="tile is-ancestor my-5 has-background-danger-light">
-                <div class="tile is-4 is-vertical is-parent">
-                    <div class="tile is-child">
-                        <img src="room.img"
-                            alt="room.type" width="100%">
+            <div id="room.id">
+                <div class="tile is-ancestor my-5 has-background-danger-light">
+                    <div class="tile is-4 is-vertical is-parent">
+                        <div class="tile is-child">
+                            <img :src="room.img" alt="room.type" width="100%">
+                        </div>
                     </div>
-                </div>
-                <div class="tile is-parent is-vertical">
-                    <div class="tile is-child">
-                        <p class="title">{{room.type}}</p>
-                        <p class="subtitle">{{room.description}}</p>
-                    </div>
-                    <div class="tile is-child has-text-right">
-                        <p class="title has-text-danger">{{room.price}}</p>
-                        <button class="button has-background-success">จองตอนนี้</button>
+                    <div class="tile is-parent is-vertical">
+                        <div class="tile is-child">
+                            <p class="title">{{room.type}}</p>
+                            <p class="subtitle">{{room.description}}</p>
+                        </div>
+                        <div class="tile is-child has-text-right">
+                            <p class="title has-text-danger">{{room.price}}</p>
+                            <a href="booking.html">
+                                <button class="button has-background-success">จองตอนนี้</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -201,7 +204,7 @@
 
 
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <script src="data.js"></script>
+    <script src="./data/data.js"></script>
     <script>
         var app = new Vue({
             el: '#home',
