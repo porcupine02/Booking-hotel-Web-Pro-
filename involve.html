@@ -1,0 +1,132 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <nav class="navbar is-dark" role="navigation" aria-label="main navigation"
+        style="position:fixed; top: 0; width: 100%;">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#home">
+                <i class="fas fa-home "></i>
+                &nbsp Home
+            </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item">
+                    ค้นหาห้องพัก
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        ห้องพักของเรา
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item"  href="#sd">
+                            Standard Room
+                        </a>
+                        <a class="navbar-item" href="#dl">
+                            Deluxe Room
+                        </a>
+                        <a class="navbar-item" href="#st">
+                            Suite Room
+                        </a>
+                        <a class="navbar-item"  href="#su">
+                            Superior Room
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons asd">
+                        <a class="button is-info" @click="isActive_Sign_up = true">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-dark" @click="isActive_Sign_in = true">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    
+    <!-- หน้ารายละเอียด -->
+    <div class="columns" style="margin-top: 100px">
+       <div class="column"></div>
+       <div class="column is-three box">
+          <table class="table is-bordered" style="width: 100%;">
+                <tr>
+                    <th colspan="4" class="has-text-centered">ใบชำระเงิน</th>
+                </tr>
+                <tr>
+                    <td colspan="2">เลขบัญชี : 1234567890</td>
+                    <td colspan="2">ธนาคาร : กรุงไทย</td>
+                </tr>
+                <tr>
+                    <td colspan="4">ชื่อบัญชี : folk</td>
+                </tr>
+
+                <tr>
+                    <th colspan="4" class="has-text-centered">รายละเอียดการจอง</th>
+                </tr>
+                <tr>
+                    <td colspan="4">ชื่อ : </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Check in : </td>
+                    <td colspan="2">Check out : </td>
+                </tr>
+                <tr>
+                    <td colspan="2">จำนวนคน :</td>
+                    <td colspan="2">จำนวนห้อง :</td>
+                  
+                </tr>
+                <tr>
+                    <td colspan="2">ประเภทห้อง : </td>
+                    <td colspan="2">ราคา : </td>
+                </tr>
+                <tr>
+                    <td colspan="3">รวม :</td>
+                </tr>
+                <tr>
+                    <th colspan="4" class="has-text-centered">หลักฐานการจ่ายตัง</th>
+                </tr>
+                <tr>
+                    <td colspan="4">สลิป :
+                        <input type="file">
+                    </td>
+                </tr>
+          </table>
+          <div class="columns">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column is-three"> 
+                <button class="button is-primary ">ยืนยัน</button>
+            </div>
+            <div class="column">   
+                <button class="button is-danger">ยกเลิก</button>
+            </div>
+            
+            <div class="column"></div>
+            <div class="column"></div>
+           
+          </div>
+
+       </div>
+       <div class="column"></div>
+
+    </div>
+
+        
+
+
+</body>
+</html>

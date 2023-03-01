@@ -1,0 +1,175 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <nav class="navbar is-dark" role="navigation" aria-label="main navigation"
+        style="position:fixed; top: 0; width: 100%;">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#home">
+                <i class="fas fa-home "></i>
+                &nbsp Home
+            </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item">
+                    ค้นหาห้องพัก
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        ห้องพักของเรา
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item"  href="#sd">
+                            Standard Room
+                        </a>
+                        <a class="navbar-item" href="#dl">
+                            Deluxe Room
+                        </a>
+                        <a class="navbar-item" href="#st">
+                            Suite Room
+                        </a>
+                        <a class="navbar-item"  href="#su">
+                            Superior Room
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons asd">
+                        <a class="button is-info" @click="isActive_Sign_up = true">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-dark" @click="isActive_Sign_in = true">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    
+    <!-- หน้ารายละเอียด -->
+    <div class="columns" style="margin-top: 200px">
+        <div class="column"></div>
+        <div class="box column  is-three-fifths" style="margin-top: 20px; padding: 50px; font-size: 15px;">
+           <div class="columns">
+                <div class="column is-three">
+                    <label for="">Check in</label>
+                    <div>
+                        <input type="date" class="input is-small" style="width: 230px; margin-top: 10px;">
+                    </div>
+                </div>
+                <div class="column">
+                    <label for="">Check out</label>
+                    <div>
+                        <input type="date" class="input is-small" style="width: 230px; margin-top: 10px">
+                    </div>
+                </div>
+
+                <div class="column">
+                    <label for="">Adult</label>
+                    <div>
+                        <div class="select is-small"  style="margin-top: 10px;">
+                            <select style="width: 230px;  ">
+                              <option>1 adult</option>
+                              <option>2 adults</option>
+                              <option>3 adults</option>
+                              <option>4 adults</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+           <div class="columns">
+                <div class="column is-three">
+                    <label for="">Rooms</label>
+                    <div>
+                        <div class="select is-small" style="margin-top: 10px;">
+                            <select style="width: 230px;">
+                              <option>1 room</option>
+                              <option>2 rooms</option>
+                              <option>3 rooms</option>
+                              <option>4 rooms</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <label for="">Type room</label>
+                    <div>
+
+                        <div class="select is-small"  style="margin-top: 10px;">
+                            <select style="width: 230px;  ">
+                              <option>Standard Room</option>
+                              <option>Deluxe Room</option>
+                              <option>Suite Room</option>
+                              <option>Superior Room</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <label for="">Price</label>
+                    <div>
+
+                        <div class="select is-small"  style="margin-top: 10px;">
+                            <select style="width: 230px;  ">
+                              <option>1000 Baht</option>
+                              <option>2000 Baht</option>
+                              <option>3000 Baht</option>
+                              <option>40000 Baht</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="columns">
+                <div class="column is-three">
+                    <label for="">First Name</label>
+                    <div>
+                       <input type="text" class="input is-small" style="margin-top: 10px; width:230px;" placeholder="Puttonpong">
+                    </div>
+                </div>
+                <div class="column">
+                    <label for="">Last Name</label>
+                    <div>
+                        <input type="text" class="input is-small" style="margin-top: 10px; width:230px;" placeholder="Panich">
+                    </div>
+                </div>
+
+                <div class="column"></div>
+            
+            </div>
+            <div class="columns">
+                <div class="column"></div>
+                <div class="column"></div>
+                <div class="column"></div>
+                <div class="column"></div>
+                <div class="column">
+                    <button class="button has-background-danger is-normal is-rounded">Next</button>
+                </div>
+            </div>
+        </div>
+          
+        <div class="column"></div>
+
+    </div>
+
+        
+
+
+</body>
+</html>
