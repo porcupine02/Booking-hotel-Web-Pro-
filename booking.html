@@ -70,25 +70,27 @@
                 <div class="column is-three">
                     <label for="">Check in</label>
                     <div>
-                        <input type="date" class="input is-small" style="width: 230px; margin-top: 10px;" v-model="checkIn">
+                        <input type="date" class="input is-small" style="width: 230px; margin-top: 10px;"
+                            v-model="checkIn">
                     </div>
                 </div>
                 <div class="column">
                     <label for="">Check out</label>
                     <div>
-                        <input type="date" class="input is-small" style="width: 230px; margin-top: 10px" v-model="checkOut">
+                        <input type="date" class="input is-small" style="width: 230px; margin-top: 10px"
+                            v-model="checkOut">
                     </div>
                 </div>
 
                 <div class="column">
-                    <label for="">Adult</label>
+                    <label for="">People</label>
                     <div>
                         <div class="select is-small" style="margin-top: 10px;">
                             <select style="width: 230px;  " v-model="people">
-                                <option>1 adult</option>
-                                <option>2 adults</option>
-                                <option>3 adults</option>
-                                <option>4 adults</option>
+                                <option value="1">1 person</option>
+                                <option value="2">2 people</option>
+                                <option value="3">3 people</option>
+                                <option value="4">4 people</option>
                             </select>
                         </div>
                     </div>
@@ -101,10 +103,10 @@
                     <div>
                         <div class="select is-small" style="margin-top: 10px;">
                             <select style="width: 230px;" v-model="room">
-                                <option>1 room</option>
-                                <option>2 rooms</option>
-                                <option>3 rooms</option>
-                                <option>4 rooms</option>
+                                <option value="1">1 room</option>
+                                <option value="2">2 rooms</option>
+                                <option value="3">3 rooms</option>
+                                <option value="4">4 rooms</option>
                             </select>
                         </div>
                     </div>
@@ -151,7 +153,6 @@
                 <div class="column"></div>
                 <div class="column"></div>
                 <div class="column">
-                    <a class="button has-background-warning is-normal is-rounded" @click="pushdata()">confirm</a>
                 </div>
                 <div class="column">
                     <a class="button has-background-danger is-normal is-rounded" @click="confirm_booking()">Next</a>
@@ -175,36 +176,31 @@
                 checkIn: '',
                 checkOut: '',
                 people: '',
-                num:'',
+                num: '',
+                room: 0,
                 customer: [],
-                con: true,
             },
             methods: {
-                // pushdata() {
-                //     // push data in customer array
-                //     console.log("adsfasd")
-                //     var arr = [];
-
-                //     const obj1 = {
-                //         "fname": this.fname, "lname": this.lname
-                //     };
-                //     arr.push(obj1)
-                //     console.log(arr)
-
-                //     this.customer.push(obj1)
-                //     this.con = false
-                // },
                 confirm_booking() {
-                    console.log("zxcv")
+                    const obj1 = {
+                        "fname": this.fname,
+                        "lname": this.lname,
+                        "checkIn": this.checkIn,
+                        "checkOut": this.checkOut,
+                        "price": this.price,
+                        "people": this.people,
+                        "countRoom": this.room,
+                        "type": this.checkType
+                    };
+                    this.customer.push(obj1)
 
+                    // console.log(this.customer)
 
-
-
-                    const dataBooking = JSON.stringify(customer)
+                    const dataBooking = JSON.stringify(this.customer)
                     localStorage.setItem("book", dataBooking);
                     window.location.href = "involve.html";
 
-                }
+                },
             },
             watch: {
                 checkType(newVal) {

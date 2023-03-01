@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Document</title>
 </head>
 
@@ -61,7 +62,7 @@
 
 
     <!-- หน้ารายละเอียด -->
-    <div class="columns" style="margin-top: 100px">
+    <div class="columns" style="margin-top: 100px" id="invoice">
         <div class="column"></div>
         <div class="column is-three box">
             <table class="table is-bordered" style="width: 100%;">
@@ -80,30 +81,30 @@
                     <th colspan="4" class="has-text-centered">รายละเอียดการจอง</th>
                 </tr>
                 <tr>
-                    <td colspan="4">ชื่อ : </td>
+                    <td colspan="4">ชื่อ : {{ information[0].fname + ' ' + information[0].lname }}</td>
                 </tr>
                 <tr>
-                    <td colspan="2">Check in : </td>
-                    <td colspan="2">Check out : </td>
+                    <td colspan="2">Check in : {{ information[0].checkIn }}</td>
+                    <td colspan="2">Check out : {{ information[0].checkOut }}</td>
                 </tr>
                 <tr>
-                    <td colspan="2">จำนวนคน :</td>
-                    <td colspan="2">จำนวนห้อง :</td>
+                    <td colspan="2">จำนวนคน : {{ information[0].people }}</td>
+                    <td colspan="2">จำนวนห้อง : {{ information[0].countRoom }}</td>
 
                 </tr>
                 <tr>
-                    <td colspan="2">ประเภทห้อง : </td>
-                    <td colspan="2">ราคา : </td>
+                    <td colspan="2">ประเภทห้อง : {{ information[0].type }}</td>
+                    <td colspan="2">ราคา : {{ information[0].price }}</td>
                 </tr>
                 <tr>
-                    <td colspan="3">รวม :</td>
+                    <td colspan="3">รวม : {{ total }}</td>
                 </tr>
                 <tr>
                     <th colspan="4" class="has-text-centered">หลักฐานการจ่ายตัง</th>
                 </tr>
                 <tr>
                     <td colspan="4">สลิป :
-                        <input type="file">
+                        <input type="file" v-model="file">
                     </td>
                 </tr>
             </table>
@@ -111,15 +112,14 @@
                 <div class="column"></div>
                 <div class="column"></div>
                 <div class="column is-three">
-                    <button class="button is-primary ">ยืนยัน</button>
+                    <a class="button is-primary " @click="comfirm()">ยืนยัน</a>
                 </div>
                 <div class="column">
-                    <button class="button is-danger">ยกเลิก</button>
+                    <a href="booking.html" class="button is-danger">ยกเลิก</a>
                 </div>
 
                 <div class="column"></div>
                 <div class="column"></div>
-
             </div>
 
         </div>
@@ -128,6 +128,29 @@
     </div>
 
 
+    <script>
+        var app = new Vue({
+            el: '#invoice',
+            data: {
+                information: '',
+                total: 0,
+                file: '',
+            },
+            methods: {
+                confirm() {
+                    const receipt = JSON.stringify(this.customer)
+                    localStorage.setItem("book", dataBooking);
+                    window.location.href = "profile.html";
+
+                }
+
+            },
+            created() {
+                this.information = JSON.parse(localStorage.getItem('book'))
+                this.total = this.information[0].price * this.information[0].countRoom
+            }
+        })
+    </script>
 
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
