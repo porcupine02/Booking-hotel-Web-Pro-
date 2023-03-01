@@ -100,7 +100,7 @@
                     <a href="profile.html">Sign up</a>
                 </button>
 
-                <button class="button is-danger" @click="Close()">Close</button>
+                <button class="button is-danger"  @click="Close()">Close</button>
             </form>
 
         </div>
@@ -116,7 +116,7 @@
             </div>
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item" href="seach.html">
+                    <a class="navbar-item" v-if="login == true" href="seach.html">
                         ค้นหาห้องพัก
                     </a>
 
@@ -190,7 +190,7 @@
                         <div class="tile is-child has-text-right">
                             <p class="title has-text-danger">{{room.price}}</p>
                             <a href="booking.html">
-                                <button class="button has-background-success">จองตอนนี้</button>
+                                <button v-if="login == true" class="button has-background-success">จองตอนนี้</button>
                             </a>
                         </div>
                     </div>
@@ -213,7 +213,15 @@
                 isActive_Sign_in: false,
                 isActive_Sign_up: false,
                 allRoom: rooms,
+                login: false
 
+            },
+
+            methods:{
+                Close(){
+                    this.isActive_Sign_in =  false
+                    this.isActive_Sign_up = false
+                }
             }
         })
     </script>
