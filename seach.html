@@ -87,7 +87,7 @@
                 <!-- </p> -->
                 <div class="control is-expanded select" style="width:5%">
                     <select style="width:100%;">
-                        <option v-for="item in limit" :key="item.id" :value="item.id">
+                        <option v-for="item in limit" >
                             {{ item.range }}
                         </option>
                         <!-- <option>1000 - 2000</option>
@@ -132,14 +132,16 @@
                     allRoom: rooms,
                     selected_room: '',
                     selected_price: '',
-                    // limit: limits,
+                    limit: data_range,
+                    limit_u : data_range
                     // selectPrice: prices,
                     // price: rangePrice,
                 },
                 computed: {
                     selRoom() {
                         return this.allRoom.filter(value => value.type == this.selected_room || this.selected_room == '' || this.selected_room == 'All' || value == this.selected_price)
-                    }
+                    },
+                    
                 },
                 watch: {
                     // selected_am(newval) {
@@ -149,9 +151,14 @@
 
                     //     })
                     // },
-                    // selected_price(){
+                    selected_room(newval){
+                        console.log(newval)
+                        this.limit = this.limit_u.filter(value => {
+                            return value.type == newval
+                        })
+                    }
+                    
 
-                    // }
 
 
                 },
