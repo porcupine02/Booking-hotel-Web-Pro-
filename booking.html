@@ -179,10 +179,13 @@
                 num: '',
                 room: 0,
                 customer: [],
+                // dataBooking : dataBooking,
+                money: []
             },
             methods: {
                 confirm_booking() {
-                    const obj1 = {
+                   
+                    this.customer.push({
                         "fname": this.fname,
                         "lname": this.lname,
                         "checkIn": this.checkIn,
@@ -192,14 +195,18 @@
                         "countRoom": this.room,
                         "type": this.checkType,
                         "status": 'wait'
-                    };
-                    this.customer.push(obj1)
+                    })
 
                     // console.log(this.customer)
 
-                    const dataBooking = JSON.stringify(this.customer)
+                     var dataBooking = JSON.stringify(this.customer)
                     localStorage.setItem("book", dataBooking);
+
+                    console.log(dataBooking)
+
+                    
                     window.location.href = "involve.html";
+                    // window.location.href = "profile.html";
 
                 },
             },
@@ -214,9 +221,20 @@
                     } else if (newVal == "Superior Room") {
                         this.price = this.allRoom[3].price
                     }
+                   
                 }
+                
+            },
+
+            created() {
+                if(JSON.parse(localStorage.getItem('book')) != null)
+                this.customer = JSON.parse(localStorage.getItem('book'))
             }
+           
+            
         })
+
+        
 
 
     </script>

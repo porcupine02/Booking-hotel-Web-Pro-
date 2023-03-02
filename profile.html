@@ -110,7 +110,7 @@
                                 <td>{{ item.type }}</td>
                                 <td>{{ item.checkIn }}</td>
                                 <td>{{ item.checkOut }}</td>
-                                <td>{{ item.price }} ฿</td>
+                                <td>{{ item.price * item.countRoom}} ฿</td>
                                 <td :class="item.status == 'wait' ? 'has-background-success' : 'has-background-danger'">{{ item.status }}</td>
 
                             </tr>
@@ -128,13 +128,33 @@
         var profile = new Vue({
             el: '#profile',
             data: {
-                history: [],
-                profiles : profiles
+                history: '',
+                profiles : profiles,
+                booking : []
 
             },
             created() {
                 this.history = JSON.parse(localStorage.getItem('book'))
-                console.log(this.history)
+
+                // const arr = Array.from(localStorage.getItem('book'))
+
+            
+
+                // this.history.push(this.books)
+
+                // console.log(this.history.length)
+                // const history_string = JSON.stringify(this.history);
+                // localStorage.setItem("history_string", history_string)
+                
+
+
+
+                
+                // this.history.push(this.booking)
+               
+                // console.log(this.booking)
+                // console.log(typeof(history_string))
+                console.log(typeof(this.history))
             }
         })
 
