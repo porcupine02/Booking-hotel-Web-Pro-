@@ -67,21 +67,21 @@
     <div class="container mt-6 pt-5" id="profile">
         <div class="container mt-6 pt-5">
             <p class="title has-text-centered">MY PROFILE</p>
-            <div class="columns">
+            <div class="columns" v-for="p in profiles">
                 <div class="column is-2">
                     <!-- left -->
                 </div>
                 <div class="column is-3">
                     <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
                         alt="profile image">
-                    <p class="has-text-centered title is-4 mt-2">Username</p>
+                    <p class="has-text-centered title is-4 mt-2">{{p.user_name}}</p>
                 </div>
                 <div class="column">
-                    <p class="title is-6 mt-2">first name &nbsp last name</p>
+                    <p class="title is-6 mt-2">Name : {{p.first_name + ' ' + p.last_name}}</p>
                     <p class="subtitle is-6" style="line-height: 1.7;">
-                        Email : assume@kmitl.ac.th <br>
-                        Phone : 088-888-8888 <br>
-                        Date of Birth : 01-01-2023
+                        Email : {{p.email}} <br>
+                        Phone : {{p.phone}} <br>
+                        Date of Birth : {{p.birth_date}}
                     </p>
 
                 </div>
@@ -123,11 +123,13 @@
             </div>
         </div>
     </div>
+    <script src="./data/profile.js"></script>
     <script>
         var profile = new Vue({
             el: '#profile',
             data: {
                 history: [],
+                profiles : profiles
 
             },
             created() {
