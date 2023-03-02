@@ -8,7 +8,7 @@ const rooms = JSON.parse(`[{
     "id": "02",
     "type": "Deluxe Room",
     "price": 1499,
-    "description": "ห้องราคาดี มีเฟอร์นิเจอร์พร้อม เป็นมิตรกับทุกคน",
+    "description": "เตียงนุ่นนอนสบาย สไลต์คนชอบชิว จองห้องมานอนเล่นถือว่าคุ้ม!",
     "img": "./asset/deluxe.jpg"
   }, {
     "id": "03",
