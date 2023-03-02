@@ -53,45 +53,45 @@
                 <div class="field">
                     <h1 class="label">First Name</h1>
                     <div class="control">
-                        <input class="input" type="text" placeholder="Puttipong" />
+                        <input class="input" type="text" placeholder="Puttipong" v-model="sign_fname" />
                     </div>
                 </div>
                 <div class="field">
                     <h1 class="label">Last Name</h1>
                     <div class="control">
-                        <input class="input" type="text" placeholder="Panich" />
+                        <input class="input" type="text" placeholder="Panich" v-model="sign_lname" />
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">Phone number</label>
                     <div class="control">
-                        <input class="input" type="password" placeholder="083-3343-xxx" />
+                        <input class="input" type="password" placeholder="083-3343-xxx" v-model="sign_phone" />
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">Date</label>
                     <div class="control">
-                        <input class="input" type="date" placeholder="24/07/2002" />
+                        <input class="input" type="date" placeholder="24/07/2002" v-model="sign_dob" />
                     </div>
                 </div>
                 <div class="field">
                     <h1 class="label">Email</h1>
                     <div class="control">
-                        <input class="input" type="email" placeholder="e.g. alex@example.com" />
+                        <input class="input" type="email" placeholder="e.g. alex@example.com" v-model="sign_email" />
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label">User Name</label>
                     <div class="control">
-                        <input class="input" type="password" placeholder="Folk" />
+                        <input class="input" type="password" placeholder="Folk" v-model="sign_username" />
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label">Password</label>
-                    <div class="control">
-                        <input class="input" type="password" placeholder="********" />
+                    <div class="control"> <input class="input" type="password" placeholder="********"
+                            v-model="sign_pass" />
                     </div>
                 </div>
 
@@ -100,7 +100,7 @@
                     <a href="profile.html">Sign up</a>
                 </button>
 
-                <button class="button is-danger"  @click="Close()">Close</button>
+                <button class="button is-danger" @click="Close()">Close</button>
             </form>
 
         </div>
@@ -126,16 +126,16 @@
                         </a>
 
                         <div class="navbar-dropdown">
-                            <a class="navbar-item" href="index.html#sd">
+                            <a class="navbar-item" href="index.html#01">
                                 Standard Room
                             </a>
-                            <a class="navbar-item" href="index.html#dl">
+                            <a class="navbar-item" href="index.html#02">
                                 Deluxe Room
                             </a>
-                            <a class="navbar-item" href="index.html#st">
+                            <a class="navbar-item" href="index.html#03">
                                 Suite Room
                             </a>
-                            <a class="navbar-item" href="index.html#su">
+                            <a class="navbar-item" href="index.html#04">
                                 Superior Room
                             </a>
                         </div>
@@ -179,7 +179,7 @@
 
         <!-- content -->
         <div class="container my-5" v-for="room in allRoom">
-            <div id="room.id">
+            <div :id="room.id">
                 <div class="tile is-ancestor my-5 has-background-danger-light">
                     <div class="tile is-4 is-vertical is-parent">
                         <div class="tile is-child">
@@ -217,18 +217,27 @@
                 isActive_Sign_in: false,
                 isActive_Sign_up: false,
                 allRoom: rooms,
-                logins: false
+                logins: false,
+                sign_fname: '',
+                sign_lname: '',
+                sign_phone: '',
+                sign_dob: '',
+                sign_email: '',
+                sign_username: '',
+                sign_pass: '',
             },
 
-            methods:{
-                Close(){
-                    this.isActive_Sign_in =  false
+            methods: {
+                Close() {
+                    this.isActive_Sign_in = false
                     this.isActive_Sign_up = false
                 },
-                login(){
+                login() {
                     this.logins = true;
                     this.isActive_Sign_in = false
                 }
+            },
+            created() {
             }
 
 

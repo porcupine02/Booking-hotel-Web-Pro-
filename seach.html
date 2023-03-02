@@ -79,7 +79,7 @@
                 <div class="control is-expanded select" style="width:5%">
                     <select style="width:100%;" v-model="selected_room">
                         <option>All</option>
-                        <option v-for="room in allRoom">
+                        <option v-for="room in showSel">
                             {{ room.type }}
                         </option>
                     </select>
