@@ -131,7 +131,7 @@
                     selected_room: 'All',
                     selected_price: '',
                     limit: data_range,
-                    limit_u: data_range
+                    limit_reserve: data_range
                 },
                 computed: {
                     selRoom() {
@@ -142,7 +142,7 @@
                 watch: {
                     selected_room(newval) {
                         console.log(newval)
-                        this.limit = this.limit_u.filter(value => {
+                        this.limit = this.limit_reserve.filter(value => {
                             return value.type == newval
                         })
                     }
