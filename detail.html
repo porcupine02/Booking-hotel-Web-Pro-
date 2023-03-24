@@ -1,0 +1,127 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>detail</title>
+</head>
+
+<body>
+    <div id="home">
+        <!-- nav bar -->
+        <nav class="navbar is-dark" role="navigation" aria-label="main navigation"
+            style="position:fixed; top: 0; width: 100%;">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="#home">
+                    <i class="fas fa-home "></i>
+                    &nbsp Home
+                </a>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" v-if="logins == true" href="seach.html">
+                        ค้นหาห้องพัก
+                    </a>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            ห้องพักของเรา
+                        </a>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="index.html#01">
+                                Standard Room
+                            </a>
+                            <a class="navbar-item" href="index.html#02">
+                                Deluxe Room
+                            </a>
+                            <a class="navbar-item" href="index.html#03">
+                                Suite Room
+                            </a>
+                            <a class="navbar-item" href="index.html#04">
+                                Superior Room
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons asd">
+                            <a class="button is-info" v-if="logins == false" @click="isActive_Sign_up = true">
+                                <strong>Sign up</strong>
+                            </a>
+                            <a class="button is-dark" v-if="logins == true" href="profile.html">
+                                <strong>My Profile</strong>
+                            </a>
+                            <a class="button is-dark" v-if="logins == false" @click="isActive_Sign_in = true">
+                                Log in
+                            </a>
+                            <a class="button is-danger" v-if="logins == true" @click="logins = false">Log out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <br>
+        <script src="script.js"></script>
+        <!-- content -->
+        <div class="container mt-6">
+            <!-- left -->
+            <div class="columns">
+                <div class="column is-6">
+                    <img src="" alt="image room" class="has-background-info-light">
+                </div>
+                <div class="column is-5">
+                    <p class="title is-3">
+                        Standard Room
+                    </p>
+                    <div>
+                        <i class="fa fa-star" style="font-size:40px ;color:rgb(244, 247, 76)"></i>
+                        <i class="fa fa-star" style="font-size:40px ;color:rgb(244, 247, 76)"></i>
+                        <i class="fa fa-star" style="font-size:40px ;color:rgb(244, 247, 76)"></i>
+                        <i class="fa fa-star" style="font-size:40px ;color:rgb(188, 188, 165)"></i>
+                        <i class="fa fa-star" style="font-size:40px ;color:rgb(188, 188, 165)"></i>
+                    </div>
+                    <div class="tile is-child">
+                        <p class="title has-text-danger mt-6">9999
+                            <a href="booking.html">
+                                <button class="button has-background-success">จองตอนนี้</button>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="column is-1">
+                </div>
+
+            </div>
+            <hr />
+            <div>
+                รายละเอียดเพิ่มเติม
+
+            </div>
+            <hr />
+            <div>
+                บริการจากทางโรงแรม
+
+            </div>
+        </div>
+</body>
+
+</html>
+
+
+<!-- description -->
+<!-- <p class="subtitle">asdlkfjaskdjflasdjfjdsf
+    asldkfkjlasdfjlkasjdflksadjfas
+    asldkfkjlasdfjlkasjdflksadjfas
+    asldkfkjlasdfjlkasjdflksadjfas
+    asldkfkjlasdfjlkasjdflksadjfas
+    asldkfkjlasdfjlkasjdflksadjfas
+    asldkfkjlasdfjlkasjdflksadjfas
+</p> -->
