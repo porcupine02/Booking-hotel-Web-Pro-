@@ -1,0 +1,72 @@
+<%- include('./elements/header') -%>
+
+    <body>
+        <!-- nav -->
+        <%- include('./elements/navbar') -%>
+
+
+            <!-- Profile -->
+            <div class="container mt-6 pt-5" id="profile">
+                <div class="container mt-6 pt-5">
+                    <p class="title has-text-centered">Orders</p>
+
+
+                    <div class="columns">
+                        <div class="column is-1">
+                            <!-- left -->
+                        </div>
+                        <div class="column">
+                            <table class="table has-text-centered" width="100%">
+                                <tr class="title is-5 has-background-danger-light">
+                                    <td>invoice id</td>
+                                    <td>type room</td>
+                                    <td>check in</td>
+                                    <td>check out</td>
+                                    <td>price</td>
+                                    <td>status</td>
+                                    <td>confirm booking</td>
+                                </tr>
+                                <tbody class="title is-5 has-background-light subtitle"
+                                    v-for="(item, index) in history">
+                                    <tr>
+                                        <td>{{ '000' + index+1 }}</td>
+                                        <td>{{ item.type }}</td>
+                                        <td>{{ item.checkIn }}</td>
+                                        <td>{{ item.checkOut }}</td>
+                                        <td>{{ item.price }} ฿</td>
+                                        <td
+                                            :class="item.status == 'wait' ? 'has-background-success' : 'has-background-danger'">
+                                            {{ item.status }}</td>
+                                        <td class="has-background-primary" @click="confirm()"> confirm</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="column is-1">
+                            <!-- right -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                var profile = new Vue({
+                    el: '#profile',
+                    data: {
+                        history: [],
+
+                    },
+                    methods: {
+                        confirm() {
+                            console.log('test')
+                        }
+                    },
+                    created() {
+                        this.history = JSON.parse(localStorage.getItem('book'))
+                        console.log(this.history)
+                    }
+                })
+
+
+            </script>
+
+    </body>
