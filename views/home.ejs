@@ -1,0 +1,88 @@
+<%- include('./elements/header') -%>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <body>
+        <div id="home">
+            <%- include('./elements/login') -%>
+
+
+                <!-- nav bar -->
+                <%- include('./elements/navbar') -%>
+
+                    <!-- banner -->
+
+                    <section class="hero has-background-info-light is-large bannerImage">
+                        <div class="hero-body has-text-centered" style="z-index: 2;">
+                            <p class="title is-size-1">
+                                HOTEL BOOKING
+                            </p>
+                            <p class="subtitle">
+                                information for you
+                            </p>
+                        </div>
+                    </section>
+
+
+
+
+                    <!-- content -->
+                    <div class="container my-5" v-for="room in allRoom">
+                        <div :id="room.id">
+                            <div class="tile is-ancestor my-5 has-background-danger-light">
+                                <div class="tile is-4 is-vertical is-parent">
+                                    <div class="tile is-child">
+                                        <img :src="room.img" alt="room.type" width="100%">
+                                        <i class="fa fa-star mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></i>
+                                        <i class="fa fa-star mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></i>
+                                        <i class="fa fa-star mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></i>
+                                        <i class="fa fa-star mt-3" style="font-size:40px ;color:rgb(188, 188, 165)"></i>
+                                        <i class="fa fa-star mt-3" style="font-size:40px ;color:rgb(188, 188, 165)"></i>
+                                    </div>
+                                </div>
+                                <div class="tile is-parent is-vertical">
+                                    <div class="tile is-child">
+                                        <p class="title">{{room.type}}</p>
+                                        <p class="subtitle">{{room.description}}</p>
+                                    </div>
+                                    <!-- services -->
+                                    <hr>
+                                    <p class="subtitle is-5">Facilities</p>
+                                    <div class="columns">
+                                        <div class="column is-2 has-text-centered">
+                                            <i class="fa fa-coffee" style="font-size:50px"></i><br>
+                                            breakfast
+                                        </div>
+
+                                        <div class="column is-2 has-text-centered">
+                                            <i class="fa fa-wifi" style="font-size:50px"></i><br>
+                                            internet
+                                        </div>
+                                        <div class="column is-2 has-text-centered">
+                                            <i class="fa fa-wifi" style="font-size:50px"></i><br>
+                                            internet
+                                        </div>
+                                        <div class="column is-2 has-text-centered">
+                                            <i class="	fas fa-swimming-pool" style="font-size:50px"></i><br>
+                                            pool
+                                        </div>
+
+                                    </div>
+                                    <div class="tile is-child has-text-right">
+                                        <p class="title has-text-danger">{{room.price}}</p>
+                                        <a href="booking.html">
+                                            <button v-if="logins == true"
+                                                class="button has-background-success">จองตอนนี้</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+
+        <br><br><br>
+
+        <%- include('./elements/footer') -%>
+
+    </body>
