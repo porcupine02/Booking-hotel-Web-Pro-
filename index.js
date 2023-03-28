@@ -20,11 +20,11 @@ app.use(express.urlencoded({ extended: true }))
 
 // routers
 const indexRouter = require('./routes/index')
-// const blogRouter = require('./routes/blog')
+const adminRouter = require('./routes/admin')
 // const commentRouter = require('./routes/comment')
 
 app.use(indexRouter.router)
-// app.use(blogRouter.router)
+app.use(adminRouter.router)
 // app.use(commentRouter.router)
 
-// app.use('/', indexRouter.router)
+// app.use('/admin', adminRouter.router)
