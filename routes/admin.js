@@ -17,7 +17,7 @@ router.get("/admin", async function (req, res, next) {
 
 });
 
-router.put("/admin/addroom/:id", async function (req, res, next) {
+router.put("/admin/updateroom/:id", async function (req, res, next) {
     // เอารูปไปใส่ใน img table ก่อนแล้ว ดึง room_img_id มาใช้
     try {
         const room_id = req.params.id;
@@ -40,7 +40,7 @@ router.put("/admin/addroom/:id", async function (req, res, next) {
 
 
 
-router.put("/admin/updateroom", async function (req, res, next) {
+router.put("/admin/addroom", async function (req, res, next) {
     // เอารูปไปใส่ใน img table ก่อนแล้ว ดึง room_img_id มาใช้
     try {
         const room_type = req.body.type;
@@ -60,16 +60,38 @@ router.put("/admin/updateroom", async function (req, res, next) {
         if (pic4 = undefined) {
             pic4 = null
         }
+        let breakfast = req.body.breakfast;
+        let pools = req.body.pool;
+        let wifi = req.body.wifi;
+        let air_conditioner = req.body.air;
+        if (breakfast = null) {
+            breakfast = "no";
+        }
+        if (pools = null) {
+            pools = "no";
+        }
+        if (wifi = null) {
+            wifi = "no";
+        }
+        if (air_conditioner = null) {
+            air_conditioner = "no";
+        }
 
-        const [img, fields1] = await pool.query(" insert into image(pic1, pic2, pic3, pic4) value(?,?,?,?)",
+        const [services, fields4] = await pool.query(" insert into services(breakfast, pool, wifi, air_conditioner) value(?,?,?,?)",
+            [breakfast, pools, wifi, air_conditioner])
+        res.send("addd service complete!")
+        const serviceId = services.insertId
+        console.log(serviceId)
+
+
+
+        const [img, fields1] = await pool.query(" insert into image(pic1, pic2, pic3, pic4) values(?,?,?,?)",
             [pic1, pic2, pic3, pic4])
-        // res.send("addd image complete!")
-
         const imgId = img.insertId
         console.log(imgId)
-
-        const [room, fields3] = await pool.query(" insert into roomdetail(room_type, price, description, room_img_id) value(?,?,?,?)",
-            [room_type, price, description, imgId])
+        // res.send("addd image complete!")
+        const [room, fields3] = await pool.query(" insert into roomdetail(room_type, price, description, room_img_id, service_id) value(?,?,?,?,?)",
+            [room_type, price, description, imgId, serviceId])
         res.send("addd room complete!")
 
     } catch (err) {
