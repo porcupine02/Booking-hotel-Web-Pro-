@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS `customers`;
+
 CREATE TABLE `customers` (
   `cus_id` int(5) unsigned NOT NULL AUTO_INCREMENT,
   `first_name` varchar(25) NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE `customers` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 
-DROP TABLE IF EXISTS `logIn`;
+
 CREATE TABLE `logIn` (
   `login_id` int(5) unsigned NOT NULL AUTO_INCREMENT,
   `cus_id` int(5) unsigned NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE `logIn` (
    
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
-DROP TABLE IF EXISTS `roomDetail`;
+
 CREATE TABLE `roomDetail` (
   `room_id` int(5) unsigned NOT NULL AUTO_INCREMENT,
   `room_img_id` int(2) unsigned NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE `roomDetail` (
    
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
-DROP TABLE IF EXISTS `booking`;
+
 CREATE TABLE `booking` (
   `booking_id` int(5) unsigned NOT NULL AUTO_INCREMENT,
   `cus_id` int(5) unsigned NOT NULL,  
@@ -55,7 +55,7 @@ CREATE TABLE `booking` (
    
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
-DROP TABLE IF EXISTS `vacantRoom`;
+
 CREATE TABLE `vacantRoom` (
   `room_id`int(5) unsigned NOT NULL AUTO_INCREMENT,
   `count` int(2)  NOT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE `vacantRoom` (
 
 
 
-DROP TABLE IF EXISTS `payment`;
+
 CREATE TABLE `payment` (
   `payment_id` int(5) unsigned NOT NULL AUTO_INCREMENT,
   `payment_date` date  NOT NULL,
@@ -81,7 +81,6 @@ CREATE TABLE `payment` (
 
 
 
-DROP TABLE IF EXISTS `services`;
 CREATE TABLE `services` (
   `service_id` int(5) unsigned NOT NULL AUTO_INCREMENT,
   `breakfast` enum('yes', 'no')  NOT NULL,
@@ -93,7 +92,7 @@ CREATE TABLE `services` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 
-DROP TABLE IF EXISTS `image`;
+
 CREATE TABLE `image` (
   `room_img_id` int(5) unsigned NOT NULL AUTO_INCREMENT,
   `pic1` varchar(40) NOT NULL,
