@@ -37,6 +37,12 @@
                     </select>
                 </div>
             </div>
+            <form action="/search" method="GET">
+                <div class="field is-grouped px-3 py-3 pt-5 has-background-info-light">
+                    <input type="text" class="input" name="search" value="<%= search %>">
+                    <button class=" button" value="Search">Search</button>
+                </div>
+            </form>
 
             <!-- result -->
             <p class="subtitle has-text-centered mt-6">ผลการค้นหา</p>
