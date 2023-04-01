@@ -27,11 +27,14 @@ router.get("/booking", async function (req, res, next) {
 });
 router.get("/search", async function (req, res, next) {
   try {
+    const [rows_room, columns_room] = await pool.query('SELECT * FROM  roomdetail r join image i on (r.room_img_id = i.room_img_id); ')
+    res.render('search', {roomSearch : JSON.stringify(rows_room)})
+  
     console.log("hello world")
   } catch (err) {
     console.log(err)
   }
-  res.render("search")
+
 
 });
 router.get("/profile", async function (req, res, next) {
