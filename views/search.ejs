@@ -60,8 +60,8 @@
                         </div>
                         <div class="tile is-child has-text-right">
                             <p class="title has-text-danger">{{room.price}}</p>
-                            <a href="/booking">
-                                <button class="button has-background-success">จองตอนนี้</button>
+                            <a :href="'/detail/' + room.room_id">
+                                <button class="button has-background-success">รายละเอียด</button>
                             </a>
                         </div>
                     </div>
