@@ -15,7 +15,7 @@ var storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 
-
+// show
 router.get("/admin", async function (req, res, next) {
     try {
         console.log("hello world")
@@ -30,6 +30,24 @@ router.get("/admin", async function (req, res, next) {
 
 });
 
+router.get("/update/:roomId", async function (req, res, next) {
+    try {
+        const [room, fields1] = await pool.query("select * from roomdetail where room_id = ?",
+            [req.params.roomId]);
+        const [img, fields3] = await pool.query("select * from image where room_img_id = ?",
+            [room[0].room_img_id]);
+
+            console.log(room[0].room_img_id)
+            console.log(img)
+        res.render("update", { room: room, img: img })
+
+    } catch (err) {
+        console.log(err)
+    }
+
+});
+
+// update
 router.put("/admin/updateroom/:id", async function (req, res, next) {
     // เอารูปไปใส่ใน img table ก่อนแล้ว ดึง room_img_id มาใช้
     try {
@@ -51,8 +69,7 @@ router.put("/admin/updateroom/:id", async function (req, res, next) {
     }
 });
 
-
-
+// create
 router.post("/admin/addroom", upload.single('pic1'), async function (req, res, next) {
     // เอารูปไปใส่ใน img table ก่อนแล้ว ดึง room_img_id มาใช้
 

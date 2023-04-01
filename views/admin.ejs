@@ -106,9 +106,9 @@
                                                 <div class="tile is-child has-text-right">
                                                     <p class="title has-text-danger">{{room.price}}</p>
 
-                                                    <a :href=" '/detail/' + room.room_id">
+                                                    <a :href="<%= `/update/{{room.room_id}}` %>">
                                                         <button v-if="logins == true"
-                                                            class="button has-background-success">จองตอนนี้</button>
+                                                            class="button has-background-success">แก้ไขข้อมูล</button>
                                                     </a>
                                                 </div>
                                             </div>
