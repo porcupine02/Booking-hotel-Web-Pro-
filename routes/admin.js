@@ -9,7 +9,7 @@ router.get("/admin", async function (req, res, next) {
 
         const [booking, fields1] = await pool.query(" select * from booking")
         const [rooms, fields2] = await pool.query(" select * from roomdetail r left outer join image i on (r.room_img_id = i.room_img_id)")
-        res.render("admin", { booking: JSON.stringify(booking), rooms: JSON.stringify(rooms)})
+        res.render("admin", { booking: JSON.stringify(booking), rooms: JSON.stringify(rooms) })
         console.log(booking)
 
     } catch (err) {

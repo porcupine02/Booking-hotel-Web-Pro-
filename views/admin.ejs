@@ -116,9 +116,10 @@
                                     </div>
                                 </div>
                                 <!-- add room -->
-                                <div id="addRoom" class="content-tab" style="display:none">
-                                    <form>
-                                        ยังไม่ทำทำจ้า
+                                <div id="addRoom" class="content-tab">
+                                    <form method="post" action="/admin/addRoom" enctype="multipart/form-data">
+                                        <p>ชื่อห้อง<input class="input" type="text"></p>
+                                        รายละเอียด <textarea name="description" class="input"></textarea>
                                     </form>
                                 </div>
                             </div>
