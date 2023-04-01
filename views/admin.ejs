@@ -116,10 +116,54 @@
                                     </div>
                                 </div>
                                 <!-- add room -->
-                                <div id="addRoom" class="content-tab">
-                                    <form method="post" action="/admin/addRoom" enctype="multipart/form-data">
-                                        <p>ชื่อห้อง<input class="input" type="text"></p>
-                                        รายละเอียด <textarea name="description" class="input"></textarea>
+                                <div id="addRoom" class="content-tab" style="display:none">
+                                    <form method="POST" action="/admin/addroom" enctype="multipart/form-data">
+
+                                        ชื่อห้อง
+                                        <input class="input" type="text" name="room_type" placeholder="Standard room"
+                                            required>
+                                        </p>
+                                        <p>รายละเอียด
+                                            <textarea name="description" class="input"
+                                                placeholder="Detail for this room" required></textarea>
+                                        </p>
+                                        <p>บริการจากทางโรงแรม
+                                            <br>
+                                        <ul class="checkbox" name="services">
+                                            <li><input type="checkbox" name="breakfast" value="yes">breakfast</li>
+                                            <li><input type="checkbox" name="pool" value="yes">pool</li>
+                                            <li><input type="checkbox" name="wifi" value="yes">wifi</li>
+                                            <li><input type="checkbox" name="air_conditioner"
+                                                    value="air_conditioner">air_conditioner</li>
+                                        </ul>
+                                        </p>
+                                        ภาพห้อง
+                                        <div class="columns mt-3">
+                                            <div class="cloumn">
+                                                <input type="file" name="pic1" required>
+                                            </div>
+                                            <div class="cloumn">
+                                                <input type="file" name="pic2">
+                                            </div>
+                                            <div class="cloumn">
+                                                <input type="file" name="pic3">
+                                            </div>
+                                            <div class="cloumn">
+                                                <input type="file" name="pic4">
+                                            </div>
+                                        </div>
+                                        <div class="columns mt-3">
+                                            <div class="cloumn">
+                                                จำนวนห้องที่เปิดให้บริการ<input class="input" type="number" required>
+                                            </div>
+
+                                            <div class="cloumn">
+                                                ราคา<input type="number" class="input" name="price" required>
+                                            </div>
+
+                                        </div>
+                                        <input class="button" type="submit" value="Submit">
+
                                     </form>
                                 </div>
                             </div>
