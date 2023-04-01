@@ -8,7 +8,8 @@ router.get("/admin", async function (req, res, next) {
         console.log("hello world")
 
         const [booking, fields1] = await pool.query(" select * from booking")
-        res.render("admin", { booking })
+        const [rooms, fields2] = await pool.query(" select * from roomdetail")
+        res.render("admin", { booking: JSON.stringify(booking), rooms: JSON.stringify(rooms)})
         console.log(booking)
 
     } catch (err) {
