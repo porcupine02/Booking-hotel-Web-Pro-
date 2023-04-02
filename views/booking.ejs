@@ -58,7 +58,7 @@
                             <div>
                                 <div class="select is-small" style="margin-top: 10px;">
                                     <select style="width: 230px;  " v-model="checkType">
-                                        <option v-for="item in allRoom">{{ item.type }}</option>
+                                        <option v-for="item in allRoom">{{ item.room_type }}</option>
                                     </select>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                         <div class="column">
                         </div>
                         <div class="column">
-                            <a class="button has-background-danger is-normal is-rounded"
+                            <a href="/booking/invoice" class="button has-background-danger is-normal is-rounded"
                                 @click="confirm_booking()">Next</a>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                 var seach = new Vue({
                     el: '#booking',
                     data: {
-                        allRoom: rooms,
+                        allRoom: JSON.parse(`<%- rooms %>`),
                         checkType: '',
                         price: 0,
                         fname: '',
@@ -155,13 +155,13 @@
                     },
                     watch: {
                         checkType(newVal) {
-                            if (newVal == "Standard Room") {
+                            if (newVal == "standard room") {
                                 this.price = this.allRoom[0].price
-                            } else if (newVal == "Deluxe Room") {
+                            } else if (newVal == "deluxe room") {
                                 this.price = this.allRoom[1].price
-                            } else if (newVal == "Suite Room") {
+                            } else if (newVal == "suite room") {
                                 this.price = this.allRoom[2].price
-                            } else if (newVal == "Superior Room") {
+                            } else if (newVal == "superior room") {
                                 this.price = this.allRoom[3].price
                             }
 
