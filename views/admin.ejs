@@ -106,7 +106,7 @@
                                                 <div class="tile is-child has-text-right">
                                                     <p class="title has-text-danger">{{room.price}}</p>
 
-                                                    <a :href="<%= `/update/{{room.room_id}}` %>">
+                                                    <a :href="'/update/' + room.room_id ">
                                                         <button v-if="logins == true"
                                                             class="button has-background-success">แก้ไขข้อมูล</button>
                                                     </a>
@@ -207,6 +207,7 @@
                     data: {
                         history: [],
                         allRoom: JSON.parse(`<%- rooms %>`),
+                        logins : true
 
                     },
                     methods: {
