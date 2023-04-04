@@ -3,7 +3,7 @@ import db from "../config/database.js";
 
 //get all rooms
 export const getRooms = (result) =>{
-  db.query("SELECT * FROM roomdetail", (err, results)=> {
+  db.query("SELECT * FROM  roomdetail r join image i on (r.room_img_id = i.room_img_id) join services s on (r.service_id = s.service_id) ", (err, results)=> {
     if(err){
       console.log(err);
       result(err, null);

@@ -108,13 +108,16 @@
                 <div class="tile is-ancestor my-5 has-background-danger-light">
                     <div class="tile is-4 is-vertical is-parent">
                         <div class="tile is-child">
+                         
+                            <img :src="room.pic1" alt="image_room" style="width: 100%; height: 85%;">
+                            <h1>   {{ room.pic1 }}</h1>
+                            <!-- ../assets/standard1.jpg -->
+                            <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></fa>
+                            <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></fa>
+                            <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></fa>
+                            <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(188, 188, 165)"></fa>
+                            <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(188, 188, 165)"></fa>
 
-                            <img src="../assets/banner.jpg" alt="" style="width: 100%;">
-                            <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></fa>
-                            <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></fa>
-                            <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></fa>
-                            <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(188, 188, 165)"></fa>
-                            <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(188, 188, 165)"></fa>
                         </div>
                     </div>
                     <div class="tile is-parent is-vertical">
@@ -126,20 +129,20 @@
                         <hr>
                         <p class="subtitle is-5">Facilities</p>
                         <div class="columns">
-                            <div class="column is-2 has-text-centered">
+                            <div class="column is-2 has-text-centered" v-if="room.breakfast == 'yes'">
                                 <fa icon="coffee" style="font-size:50px"></fa><br>
                                 breakfast
                             </div>
 
-                            <div class="column is-2 has-text-centered">
+                            <div class="column is-2 has-text-centered" v-if="room.wifi == 'yes'">
                                 <fa icon="wifi" style="font-size:50px"></fa><br>
                                 internet
                             </div>
-                            <div class="column is-2 has-text-centered">
+                            <div class="column is-2 has-text-centered" v-if="room.air_conditioner == 'yes'">
                                 <fa icon="wifi" style="font-size:50px"></fa><br>
                                 internet
                             </div>
-                            <div class="column is-2 has-text-centered">
+                            <div class="column is-2 has-text-centered" v-if="room.pool == 'yes'">
                                 <fa icon="swimming-pool" style="font-size:50px"></fa><br>
                                 pool
                             </div>
@@ -193,7 +196,7 @@ export default {
         try{
             const response = await axios.get('http://localhost:5000/room')
             this.rooms = response.data;
-            console.log(this.rooms);
+            console.log(JSON.stringify(this.rooms));
 
         }catch(err){
             console.log(err);
@@ -212,4 +215,7 @@ export default {
 </script>
 
 <style>
+.bannerImage {
+    background: linear-gradient(rgba(221, 246, 255, 0.141) 50%, rgba(108, 120, 123, 0.278)), url('../assets/banner.jpg');
+}
 </style>
