@@ -21,7 +21,7 @@ const routes = [
   },
   {
     name: "Booking",
-    path: "/Booking",
+    path: "/booking",
     component: Booking
   },
   {

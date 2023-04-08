@@ -126,7 +126,6 @@
 <script>
 import axios from "axios";
 
-
 export default {
   data() {
     return {
@@ -179,8 +178,17 @@ export default {
     },
   },
   created() {
-    if (JSON.parse(localStorage.getItem("book")) != null)
+    if (JSON.parse(localStorage.getItem("book")) != null) {
       this.customer = JSON.parse(localStorage.getItem("book"));
+    }
+    axios.get(`http://localhost:3000/booking/${this.$route.params.id}`)
+      .then((response) => {
+        this.rooms = response.data;
+        console.log(this.blogs);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 };
 </script>

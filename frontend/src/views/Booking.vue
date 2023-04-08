@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Booking />
     <Nav />
+    <Booking />
 
   </div>
 </template>

@@ -154,16 +154,16 @@
         </section>
 
 
-   
-        
+
+
         <!-- content -->
-        <div class="container my-5" v-for="room in rooms">
-            
+        <div class="container my-5" v-for="room in rooms" :key="room">
+
             <div id="room.room_id">
                 <div class="tile is-ancestor my-5 has-background-danger-light">
                     <div class="tile is-4 is-vertical is-parent">
                         <div class="tile is-child">
-                            
+
                             <img :src="room.pic1" alt="" style="width: 100%;">
                             <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></fa>
                             <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></fa>
@@ -202,7 +202,7 @@
                         </div>
                         <div class="tile is-child has-text-right">
                             <p class="title has-text-danger"></p>
-                            <a href="booking.html">
+                            <a href="/booking">
                                 <button v-if="logins == true" class="button has-background-success">จองตอนนี้</button>
                             </a>
                         </div>
@@ -289,8 +289,8 @@ export default {
         this.logins = true;
         this.isActive_Sign_in = false
     },
-  
-    
+
+
   },
 
 //   computed:{
